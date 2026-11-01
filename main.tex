@@ -1,0 +1,46 @@
+\documentclass[sigconf, nonacm]{acmart}
+
+%%% VLDB block start %%%
+\usepackage{pvldb}
+%%% VLDB block end %%%
+
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\renewcommand\vldbdoi{XX.XX/XXX.XX}
+\renewcommand\vldbpages{XXX-XXX}
+\renewcommand\vldbavailabilityurl{https://doi.org/10.5281/zenodo.23787418}
+\renewcommand\vldbtitle{DataRanger: Proof Before Repair, with a Bound on Silent Harm}
+\renewcommand\vldbauthors{Akshay Sharma}
+
+\begin{document}
+\title{DataRanger: Proof Before Repair, with a Bound on Silent Harm}
+
+\author{Akshay Sharma}
+\affiliation{%
+  \institution{Salesforce}
+  \city{Chicago}
+  \state{Illinois}
+  \country{USA}
+}
+\email{akshay.sharma1088@gmail.com}
+
+\begin{abstract}
+Data teams are starting to let software fix the data problems their monitors find, and the risk is a fix that satisfies every monitor while leaving the data wrong. We present DataRanger, a repair agent built around a gate that applies a fix only when it matches evidence the fix cannot influence: the control totals a source system publishes and the table's declared invariants. The gate's threshold is chosen with Learn-then-Test on a randomly sampled, fully adjudicated cohort of past incidents, which bounds silent harm, the share of incidents that end with a wrong fix applied, below a target the team sets, with high probability. A repair memory reduces harm when the incident mix changes, without a formal guarantee. We also release DQ-Repair, a benchmark of pipeline incidents with decoys, stale control totals and ground-truth fixes. Over 6,600 incidents, the gate kept harm within its target in at least 95\% of calibration splits while handling 59 to 79\% of incidents without a person, against 24 to 31\% harm for repair checked only by monitors or rules. On 4,299 incidents injected into TPC-DS it automated 78 to 91\% with mean harm below target. A hand-set tolerance matched the gate on one source and broke a 1\% target in every split on another. Open-weights language models proposing fixes caused 36 to 42\% harm when applied directly and over 5\% with a self-check, and stayed under target through the gate. On Hospital, Flights and Beers, the gate made fewer wrong changes than Baran or conformal data cleaning.
+\end{abstract}
+
+\maketitle
+\vldbtopmatter
+
+\input{body_intro}
+\input{body_method}
+\input{body_exp}
+\input{body_end}
+
+\begin{acks}
+The author conceived the system architecture, theoretical formulation, and benchmark design, and takes full responsibility for all content. Anthropic's Claude was used as an assistive tool for boilerplate code generation, test scaffolding, and manuscript copy-editing. Qwen2.5 models served purely as the experimental baselines under evaluation.
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+\end{document}
