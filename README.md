@@ -13,6 +13,7 @@ wrong fixes under a rate you choose. Everything else goes to a person, with the 
 
 <p align="center">
   <a href="https://pypi.org/project/dataranger/"><img src="https://img.shields.io/pypi/v/dataranger?label=pypi&color=5fb98a" alt="PyPI"></a>
+  <a href="https://pepy.tech/projects/dataranger"><img src="https://static.pepy.tech/personalized-badge/dataranger?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads" alt="PyPI Downloads"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-e8b53a" alt="License"></a>
   <a href="https://github.com/akshaysharma1088/dataranger/actions/workflows/ci.yml"><img src="https://github.com/akshaysharma1088/dataranger/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://doi.org/10.5281/zenodo.23787418"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23787418.svg" alt="DOI"></a>
