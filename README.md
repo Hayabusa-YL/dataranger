@@ -218,6 +218,10 @@ pip install -r environment.txt && pip install -e .   # the exact versions used f
 
 Seeds are fixed, so the numbers come out the same (wall-clock timings aside). The LLM proposals (from the Actions workflow, saved in `results/llm_responses/`) and Baran's corrections (`results/baran/`, needs `raha`) are scored from their saved outputs, so the archive alone is enough to reproduce every table.
 
+## Contributing
+
+Contributions are welcome. Issues labelled [good first issue](https://github.com/akshaysharma1088/dataranger/labels/good%20first%20issue) are small and come with clear steps; see [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+
 ## Citing
 
 See `CITATION.cff`. Archived on Zenodo: [10.5281/zenodo.23787418](https://doi.org/10.5281/zenodo.23787418).
