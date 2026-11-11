@@ -131,10 +131,16 @@ def write_outputs(res: PatrolResult, out: Path, title: str = "DataRanger patrol 
     (out / "dashboard.html").write_text(render(res.incidents, title, run_date=date.today().isoformat(), meta=meta))
 
 
+def _quoted(name: str) -> str:
+    """Quote each dot-separated part of a table name, so `gold.payments` reads as
+    schema `gold` table `payments` instead of one identifier."""
+    return ".".join('"' + part.replace('"', '""') + '"' for part in name.split("."))
+
+
 def from_duckdb(db: str, table: str, ref_table: str, manifest_table: str) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     con = duckdb.connect(db, read_only=True)
     try:
-        return (con.execute(f'select * from "{table}"').df(), con.execute(f'select * from "{ref_table}"').df(),
-                con.execute(f'select * from "{manifest_table}"').df())
+        return (con.execute(f'select * from {_quoted(table)}').df(), con.execute(f'select * from {_quoted(ref_table)}').df(),
+                con.execute(f'select * from {_quoted(manifest_table)}').df())
     finally:
         con.close()
